@@ -1,0 +1,54 @@
+SOURCE: www.w3resource.com/python-exercises/python-basic-exercises.php
+______________________
+STRING CONCATENATION:
+-%s is used to perform concatenation of strings. It allows us to format a value inside a string. It is used to incorporate another string within a string. It automatically provides type conversion from value to string.
+EXAMPLE:
+a = "words "
+print ("%s%s%s" % (a,a,a))
+These all do the same thing n I have no fkn idea why one is better:
+print (a + a + a)
+print("{}{}{}".format(a,a,a))
+print(''.join([a,a,a]))
+
+..cont w #12
+
+
+______________________
+GIT / GITHUB (product.hubspot.com/blog/git-and-github-tutorial-for-beginners):
+
+-Git is an open-source, version control tool created in 2005 by developers working on the Linux operating system
+-GitHub is a company founded in 2008 that makes tools which integrate with git
+-if you only want to keep track of your code locally, you DON'T NEED GITHUB; but if you wanna work w a team, Github is for collaboration
+
+-$git init - initialize git repository (stores in ./.git directory)
+-$git status - see which files git knows exist - doesn't DO anything but let you know what git notices has changed in your repo
+-a 'commit' is a record of what changes you've made since the last commit; commits make up the essence of your project and allow you to jump to the state of a project at any other commit
+-to add a file to a commit, you must first add it to the "staging environment" or "index" using $git add <filename>
+-after adding all the files to the staging environment, then you can tell git to package them to a COMMIT using $git commit -m "Message about commit" (MAKE THE MESSAGE DESCRIPTIVE!)
+
+BRANCHING:
+-say you want to make a new feature but are worried about making changes to the main project while developing the feature. This is where git branches come in - branches allow you to move back n forth between 'states' of a project ("a lightweight movable pointer to one of these commits")
+-e.g. if you wanna add a new page to your website, you can create a new branch just for that page w/o affecting main part of proj
+-once you're done w the page, you can MERGE your changes from your branch into the primary branch; when you create a new branch, Git keeps track of which commit your branch "branched off of" so it knows the history behind all the files
+-say you're on the primary branch n want to create a new branch to develop your page: run $git checkout -b <branch_name>; then run $git branch - you'll see a list of branches n the one w '*' next to it is the one that you're on at that given time
+
+-create a new repository on github website, then $git remote add origin <branch-name>
+PUSH: allows others to see the changes you've made (if they're approved by repo owner, the changes can then be MERGED into primary branch)
+-$git push -u origin <branch_name> - this causes Github to automatically create branch for you on remote repository
+-THEN refresh repo on Github n you'll see green "Compare & Pull Request" button
+PULL REQUEST: alerts repo's owner that you want to make some changes; allows them to review code before putting changes on primary branch
+-once you click "Compare & Pull Request" button, you can click green "Merge Pull Request" button which will merge your changes into the primary branch
+-once merged, typically we DELETE THE BRANCH (too many branches becomes messy)
+
+NEIL'S SYNOPSIS OF ALL THIS SHIT ^^^:
+1. Make changes
+2. $git status to see that git recognizes there are changes
+3. $git add <filename> (can do $git status again to see that it's added)
+4. $git commit -m "Message"
+5. $git checkout -b branch_name (can do $git branch to see the new branch)
+6. $git push -u origin branch_name
+7. on github: click "compare & pull request" then "merge pull request" then "delete branch"
+..o mas bien: $git add selects changes, $git commit records changes LOCALLY, $git push shares changes ON GITHUB
+
+
+

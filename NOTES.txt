@@ -1,0 +1,380 @@
+		***** TRY REPLIT ONLINE INSTEAD OF IDLE or IPYTHON *****
+
+-w3schools.com
+-codewars.com
+-www.analyticsinsight.net/top-10-full-stack-python-courses-for-complete-beginners-2/
+-www.youtube.com/@techgatha8903
+-www.youtube.com/@Bitfumes
+-www.youtube.com/@zerotoherotree
+-realpython.com
+
+
+	CURRENT (fucking) ISSUES:
+  -"future feature annotations" error in IDLE when trying to import pandas or matplotlib module
+  -jupyter notebook sucks fucking DICK.. error: jupyter "'psutil' (most likely due to a circular import)" - if u ever get it working go here for Mosh's tips: youtu.be/_uQrJ0TkZlc?t=16098
+  -how to change IDLE sys.path without .appending EVERY FKN TIME?
+  -why the FUCK can't I get sklearn module to install?
+
+	RESOURCES:
+-Python Unix admin book (stopped at regex's)	***SEE BELOW
+
+-asian girl's simple scripts for games (stopped at AI tictactoe - youtu.be/8ext9G7xspg?t=3598)
+
+-Corey Shafer video series ***SEE BELOW (wait to pick up where left off?)
+
+-MOSH!		***finished 6hr vid - FIND MORE FROM HIM!(?)
+
+-Sigma Coding channel: www.youtube.com/c/SigmaCoding - did pathlib vid, did all 3 Yelp API vids, lists vid, started Yelp GraphQL API vid (youtu.be/Wdy-9daEd0o?t=548) BUT.. he uses Jupyter and will have to include sys.path.append statement to use gql module.. so CONT YELPGQL.. ALSO, SEPARATELY, CONT WITH 34-vid YT list "Python - ALL" (it's saved in my lib and I'm on vid #7 Google Places API)
+
+-CSDojo YT channel (#100daysofopensource??)
+
+-www.geeksforgeeks.org/matplotlib-practice-exercise-and-solutions, www.geeksforgeeks.org/pyplot-in-matplotlib/	***KINDA STARTED - matplotlib_begin.py - use iPython for now cuz IDLE SUCKS FUCKING DICK!
+
+NOT READY YET
+-github.com/firstcontributions/first-contributions
+-django documentation - overview, examples... (locally stored files - came w software download)
+-math stuff projecteuler.net
+-docs.fetch.ai/CosmPy
+
+DONE
+-codingbat.com/python - GREAT basic beginner exercises - completed all of em! :)
+____________________
+
+-certain shit works in shell $python3 file.py or run in IDLE but NOT in iPython - dunno why (num_guess is an example)
+
+-$python and $python3.8 enter diff versions of the python shell; ipython has more features or whatev but the fkn syntax is diff so wtf?...
+
+-"SHEBANG" #!/usr/bin/python - if you have multiple versions of python, this line specifies exactly which interpreter will be used to run the script on a particular system
+
+-ALL BUILT-IN MODULES ARE IN /usr/lib/python3.8/ [on this machine]***
+-ALL PIP MODULES ARE IN /home/chavo/.local/lib/python3.6/site-packages
+
+-in IDLE, to see python version n where packages are stored: import sys, sys.version, sys.path, sys.modules
+-sys.path.append("/home/chavo/.local/lib/python3.8/site-packages") - adds a path for IDLE to look for packages in
+
+-"dunder init" is how you say __init__ or any other magic/dunder method
+
+____________________
+"PYTHON FOR SYSADMINS" BOOK
+
+**in this iPython, you don't need "%" for magic functions
+
+%edit takes you into editor (VIM?)
+:qa! exits the editor
+*however, the editor SUCKS FUCKING DICK - you can't actually edit - W.T.F!? >:(
+
+%reset - resets (deletes?) ALL variables
+
+%run fdsjk.py - just executes a file simply (p84 for args), still "!" doesn't FUCKING work for bash commands >:(
+
+%save filname 10-13 - 10-13 indicates line numbers to be saved as new .py file
+
+%rep 11-13 - recalls what was typed on line 11-13 "for lazy, mouseless editing"
+_________________________________
+	STRINGS
+-str type: 'string' or "string" or '''string''' or """string""" - use last two for strings that SPAN MULTIPLE LINES
+-makes it easier to encapsulate single or double quotes in the string ("this is a 'string'" and 'this is a "string"' OOOORRR "This is a \"string\"" - n same w single quotes n "escape quote" which just means w "\")
+-for multi-line strings, you can use \n or the tripe quotes '''
+
+*note: diff than SHELL: $FOO=texta, $echo "Here is $FOO" -> "Here is texta", $echo 'Here is $FOO' -> Here is $FOO
+
+*pg 95 (pdf pg #) has table of escape sequences, put an "r" before escape sequence to make it a "raw string" - will include the escape sequence as written instead of interpreting it
+
+-'in' and 'not in' operators - :foo="Neil is cool" :'Neil' in foo -> True, :'Neil' not in foo -> False, etc...
+RETURNS BOOLEAN
+-index() and find() methods - using above ex, :foo.index('Neil') or foo.find('Neil') both return 0 (index for 1st character is 0); small difference is when the string is NOT found - find returns "-1" and index returns an error.. kinda same as 'in' n 'not in' but RETURNS INTEGER (index)
+-foo.endswith("ending") and foo.startswith("beginning") - self explanatory - returns True or False
+-there's a 'slicing hack' for these ^^ foo[:len("beginning")] == "beginning", :len("beginning") is just 9, the # of characters; foo[-len("cool"):]=="ending" - this syntax simply indexes from the end instead of beginning.. this can improve mem / performance impact
+
+- .strip .lstrip .rstrip methods will strip off characters from the beginning, end or both; see example file strip_methods.py; for MORE info see pgs 101-102 - the .strip method is a lil more complex / useful
+- .upper() and .lower() methods will check / change the characters to lower or upper case
+- .split() method: str_a="one,two,three" str_a.split(',') - extracts piece of string based on delimiter, turns string into a list; for whitespace delimiter simply use str_a.split(); also takes a second argument (i.e. str_a.split(',',1)) which only takes the first # of pieces indicated
+- .splitlines() does same thing but w hard returns
+- .join() method is opposite of split: str_list=['one', 'two', 'three', 'four'] then ','.join(str_list)
+- .replace("replacethis","withthis") - pretty obv
+
+UNICODE! unicode_string = u'abc_\u03a0\u03a3\u03a9_\u0414\u0424\u042F'
+_________________________
+	REG EXPRESSIONS
+-Python’s inclusion of regular expressions comes by way of a library rather than syntactic features of the language (must use "import re")
+
+-simple example (from www.w3schools.com/python/python_regex.asp) of searching regex's:
+import re, txt = "The rain in Spain", x = re.search(r"\bS\w+", txt)
+	-'r' at beginning treats the string as a "raw string" whatev that is..
+	-'\b' returns a match where specified character(s) ("S" here) are at the beginning of a word (or end if you put it after the character)
+	-'\w' returns a match where the string contains ANY word characters (a-Z, 0-9, and '_')
+	-'+' metacharacter meaning one or more occurences
+	(SEE WEBPAGE FOR REFERENCE ON ALL THIS FUCKIN SHIT)
+the above creates an object, x, that is a "match object" for the regex search
+print(x.string) - prints original string that was searched (just the 'txt' variable here)
+print(x.span()) - prints the endpoints where match was found ((12, 17) here)
+print(x.group()) - prints the part of string where there was a match ('Spain' here)
+
+fucking regex's next... CLUELESS :'(
+
+
+________________________________________________
+COREY SHAFER
+vid#1: youtu.be/ZDa-Z5JzLYM
+vid#2: youtu.be/BJ-VvGyQxho ...& #3 & #4 vids notes here too (see YT for URL's)
+
+-'class variables' are the same for all instances of a class where as 'instance variables' are vary by instance
+-there are 3 types of methods: regular, static, class
+-regular methods in a class automatically take the intance as the first argument (by convention 'self')
+-"decorator" @classmethod and @staticmethod are used the line prior to define method line
+-print(help(class)) - all details about a class (USEFUL!)
+
+CLASS METHODS:
+-class methods can be used as alternative constructors, aka to make instances of the class
+-regular methods pass 'self' first, class methods pass 'cls' first (by convention), BUT static methods DON'T PASS ANYTHING first SO just start w w/e variable you wanna pass
+
+-with static methods, you don't access the instance or the class anywhere within the function
+
+CLASS INHERITANCE (sub-classes):
+USEFUL built-in functions for experimenting w class inheritance:
+-isintance() - whether an object is an instance of a class; e.g. isinstance(mouth,privates) = False; but isinstance(mouth,bodyparts) = True
+-issubclass - whether a class is a subclass of another; e.g. issubclass(privates,bodyparts) = True
+-we can initiate our sub-classes w more info than the parent class can handle; do this we the sub-class NEEDS ITS OWN INIT METHOD - super().__init__(same vars as parent class, new variables..)
+
+
+DUNDER METHODS:
+vid#5 youtu.be/3ohzBxoFHAY 
+docs.python.org/3/reference/datamodel.html#special-method-names
+
+-good to have __repr__ method defined bc w/o __str__ defined, then calling __str__ on an obj will just use __repr__ as fallback
+-__repr__ is meant to return something for programmer
+-__str__ is meant to returns something for end-user
+-these two special methods allow us to change how obj's are printed / displayed
+-for simple classes: __init__, __repr__, __str__ will be special methods you use most often
+-we can customize how addition works for our objects by creating __add__ method
+
+***THESE METHODS NORMALLY ONLY WORK ON DATA / VARIABLES, BUT WHEN WE REDEFINE THEM, THEY CAN WORK ON OBJECTS
+
+-understanding these basics makes it easier to look in the standard (built-in) library n see what's going on under the hood
+
+
+PROPERTY DECORATORS:
+vid#6: youtu.be/jCzT9XFZ5bw
+
+-property decorator allows us to define a method, but we can access it like an attribute (see propertyDecor...py)
+-allows us to access attributes without putting getters n setters everywhere; PEOPLE USING OUR CLASS WON'T NEED TO CHANGE THEIR CODE
+
+
+GENERAL TIPS N TRICKS FROM COREY:
+youtu.be/C-gEQdGVXbk
+
+-ternary operators/conditionals - shorter way of writing if/else statements, e.g. "x=1 if Boolean_var else 0" 
+
+-to make large number more readable, you can JUST ADD UNDERSCORES - srsly wtf? so 10000000000 is the same as writing 10_000_000_000 (also doesn't matter where the underscore is - doesn't have to be every 3 digits)
+-also can add them to the output: print(f'{large_num}:,}') - which will put a comma every 3 digits
+
+-Context Manager - manage resources for you so you don't have to remember to manage them yourself - see example 'tipsnTricks.py' file
+-NOT just for working w files, it's any time you're setting up n tearing down resources: e.g. if working w threads n manually acquiring n releasing locks, OR opening n closing database connections manually (idk..)
+
+ENUMERATE & ZIP functions:
+-use enumerate() func when you need a counter when looping over something (in python there isn't an obvious way of keeping track of what count you're on); it's also a way of looping over TWO lists
+-zip() func returns a TUPLE - it's kinda the same but is 'cleaner' than enumerate() if looping over two lists AND we can loop through 3+ lists.. see example 'tipsnTricks.py' file
+
+***stopped vid at 13:55 at 'unpacking' - kinda over my head - cont later?
+
+
+__________________
+MOSH
+youtu.be/kqtD5dpn9C8
+
+MY EXAMPLE: input_byMosh.py
+
+3 [simple] types of data: NUMBERS, STRINGS, BOOLEANS
+-input() ALWAYS returns a string
+-int() float() bool() str() - 4 ways of converting data types
+-type(variable) returns what type of variable it is - DERRRP
+-when a function is part of an object, we refer to the function as a METHOD
+-Arith Operators: +,-,*,/ - duh. "//" - divides n rounds to neares integer, "%" returns remainder of division, "**" exponent
+-Augmented Assignment Operators: "+=" reassigns a variable to whatev you add to it, similarly "-=", etc.. x+=3 is EXACT same as x=x+3
+*order of operations is the same as in basic arith: 10+2*3=16 cuz * is evaluated 1st.. duh
+-Comparison Operators: <, <=, >, >=, ==, !=
+-Logical Operators (combine w comparison operators): and, or, not (e.g. "price > 30 or not price < 5")
+-if, elif, else - see example input_byMosh.py
+-Math functions: abs(), round().. use "import math" then "math." and <TAB> to see all math methods
+
+LISTS are a complex data type:
+-some_list[0] is first element OR some_list[-1] is last element
+
+TUPLES are like lists but IMMUTABLE
+-use parentheses instead of brackets to define tuple
+-most of the time we use lists, but if you want to be sure it doesn't accidentally get modified elsewhere in program, use tuple
+
+STRINGS (some basic info already above, possble redundancy below):
+-len("blah") returns 4 - general purpose function, not limited to strings (print is another gen purpose func)
+-WHEN A FUNCTION "BELONGS" TO SOMETHING (like only strings) IT'S A METHOD, like .upper() .lower() .title() .find() .replace()
+
+DICTIONARIES (see example file for most of it)
+-dict_name["key"] returns value
+-dict_name.get(key, "error") is "better"(?) cuz it never returns an error, and will return 2nd arg instead, if you choose to supply it (otherwise will just return "None"
+-really quick lookup times; don't have to iterate thru like w a list; here we just pass key n it returns value
+-each item in a dictionary is a tuple
+
+FUNCTIONS - a container for a few lines of code that perform a task
+PARAMETERS - placeholders we define in our function for receiving info
+ARGUMENTS - the actual pieces of info supplied to a function
+**PARAMETERS != ARGUMENTS
+-arg's are positional so put em in right order dingus.. if not you can supply the KEYWORD ARGUMENTS: given funct(param1,param2) we can call it 'backwards' like funct(param2=arg2,param1=arg1) - used to "improve readability of code" e.g. when passing in numerical args
+-keywords arguments always MUST come after positional arguments - func(first=Elton, John) won't work but func(Elton, last=John) will
+
+RETURN - without a return statement in a function, python will always return "None" bc it's gay
+EXCEPTIONS - see file for "try, except" syntax, but basically always be prepared for errors and program accordingly
+
+CLASSES - define new types - already have simple types (numbers, strings, boolean) and complex types (lists, dictionaries) but can't cover everything
+-by convention we don't use underscores to separate multiple words in a class name, we capitalize every word, e.g. ClassName (not class_name)
+-also by convention, always TWO LINE BREAKS after class definition
+-an OBJECT is an instance of a CLASS
+
+MODULE - a file w some py code - used to organize code into sections
+-to use a module just write import module (w/o ".py" at the end)
+
+***AS YOU GET BETTER AT PROGRAMMING, YOU'LL HAVE TO ORGANIZE YOUR CODE INTO FUNCTIONS, THEN CLASSES, THEN MODULES***
+
+PACKAGES - directory for multiple modules; like a store has 'women's', 'men's', 'children's'  sections as "packages" and has 'shoes', 'shirts', 'jackets' "subsections" as "modules"
+-when python interpreter sees __init__.py file in a directory, it TREATS DIRECTORY AS A PACKAGE
+
+e.g.	import ecommerce.shipping
+	ecommerce.shipping.calc_shipping() ..to call function
+..but LOTS of code every time u call func, so instead u can do:
+	from ecommerce.shipping import calc_shipping(), any_other_functions()..
+	calc_shipping() to call function
+..OR to import whole module as an object
+	from ecommerce import shipping
+	calc_shipping() to call ANY function in module
+
+-also can give packages alias: import openpyxl as xl, this will shorten code
+
+PYTHON PACKAGE INDEX: pypi.org
+-use pip3 to install shit
+-once it's installed you can import it like any other package
+-pip3 show <module> - shows all info (only on modules installed using pip)
+-pip3 list - lists all modules
+-python3.8 -m <module> install -U <module> - updates module
+-pip3 install -upgrade <module> - another way of upgrading? idfk..
+
+
+
+MACHINE LEARNING
+________________
+1. Import Data
+2. Clean the Data (such as rm duplicate patterns, irrelevant / incomplete data) - everything must be converted to numerical values somehow and depends a lot on what you're working with
+3. Split Data into Training and Test Sets (e.g. if you have 100's of pics of dogs, you can reserve 80% for training, 20% for testing)
+4. Create Model - select algorith to analyze data - depends a lot on prob you're trying to solve AND on the input data; we don't have to explicity write these algorithms - there are libraries avail
+5. Train the Model - feed the model the training data
+6. Have model make Predictions - e.g. send it a pic of a cat or dog n ask it to decide which it is; most likely that, at first, your model's predictions will be inaccurate
+7. Evaluate & Improve - evaluate predictions n measure their accuracy; then improve the model by using diff algorithm OR fine tune parameters of model to optimize accuracy
+
+Pytohn Lib's used in Machine Learning:
+numpy - provides a multi-dimensional array
+pandas - data analysis lib that provides a concept called 'dataframe' (2d data structure like spreadsheet)
+matplotlib - 2d plotting lib for creating graphs / plots
+scikit-learn - one of the MOST POPULAR - provides common algorithms like decision trees, neural networks, etc
+
+ANACONDA - platform for using Jupyter ..needs 5 MOTHERFUCKIN GB on the hard disk wtf?!
+
+
+JUPYTER - envronment for writing code used in machine learning (of course can use other code editors, but MUCH EASIER w Jupyter - many things in terminal are not good for visualizing)
+
+$jupyter notebook - doesn't work - error in terminal: jupyter "'psutil' (most likely due to a circular import)" - CAN'T FIND SOLUTION - FUCK!!! >:( ..BUT can also use web-based "try jupyter" thing: jupyter.org/try (click jupyter lab, not notebook)
+
+-Jupyter is great for VISUALIZING data - much more than IDE's or terminal windows
+-type df. then <tab> (e.g.) to show all avail methods
+-type df.describe() then <shift+tab> (e.g.) to see a tooltip to describe what method does n what params it takes
+-JUPYTER SHORTCUTS FULL LIST: youtu.be/_uQrJ0TkZlc?t=16027
+-WHILE IN COMMND MODE:
+	'h' to see all keyboard shortcuts
+	'a' for new cell above, 'b' for new cell below
+	'd' twice to delete cell
+-WHILE IN EDIT MODE:
+	shift + '/' to comment or uncomment
+	ctrl + enter - runs cell W/O adding new cell below
+
+-sklearn is most popular machine learning lib in python.. BUT WON'T WORK ON THIS FUCKING MACHINE, FUCK!! (maybe only works in Jupyter?)
+
+-Jupyter saves output of each sell in .ipynb file to save time - OFTEN EXECUTING ALL CODE TAKES A LOT OF TIME! <--very important!
+
+-GENERAL MACHINE LEARNING RULE: allocated 70-80% of data for TRAINING, and 20-30% for TESTING
+-Instead of passing only two samples for making predictions (like in 1st simple example), we can pass the dataset we have for testing, we'll get the predictions, then we can compare these predictions with the actual values in the testset. Based on that, we can calculate the accuracy.
+-To compare accuracy, simply compare predictions result w actual values we have in output set for testing. Each time we run this we'll get a different score, because every time we split data into training/testing sets, we'll have different datasets, bc the funciton randomly chooses data for training n testing
+-IMPORTANT NOTE: if we increase test size (say from 0.2 [20%] to 0.5 [50%]), our accuracy goes down.. so if we have duplicates, irrelevant data, or incomplete values, our model will learn bad patterns in our data... this is why it's VERY IMPORTANT TO CLEAN OUR DATA BEFORE TRAINING OUR MODEL!
+
+MODEL PERSISTENCE:
+-so.. before we imported dataset, created a model, trained the model, then asked model to make predictions
+-now.. we don't want to import data, create model, and train the model EVERY TIME we have a new user or make recommendations to an existing user, because TRAINING A MODEL CAN BE VERY TIME-CONSUMING (in our example, there were only 20 records, but normally there are 1000's or millions) - this is why MODEL PERSISTENCE IS IMPORTANT
+-so.. we build n train our model then save it to a file, that way when we wanna make predictions we just load model from the file n simply ask it to make predictions
+
+VISUALIZING A DECISION TREE:
+-tree.export_graphviz() exports a .dot file which is a textual language for describing graphs
+
+*** STOPPED HERE youtu.be/_uQrJ0TkZlc?t=17753:
+need to install dot extension - I THINK THIS ONLY WORKS FOR VSCODE - can't even figure out how to install extensions in FUCKING IDLE >:(
+-s'ok tho, this last little bit ISN'T THAT IMPORTANT
+
+
+1st DJANGO PROJECT
+__________________
+-install django thru pip
+-$django-admin startproject proj_name . (the '.' creates folder in current directory)
+-this ^ creates a directory structure for proj and this directory is a package cuz it has __init__.py
+-one folder is 'wsgi' (web server gateway interface) - provides a standard interface between applications built w django n web servers
+-also creates manage.py file in home dir - module that manages django proj - starts web server, work w databas, etc
+-we can run $python3.8 manage.py runserver - THIS BRINGS UP OUR WEBSERVER!
+-apps within a django project are focused on one functional area
+-(WHILE WEBSERVER IS RUNNING(?)) $python3.8 manage.py startapp products - this creates a "products" app - new folder (package) in root dir
+
+VIEW FUNCTION - function that gets called by django when user nav's to a page
+URL MAPPING - so django knows to call index func when request is sent for /products, 'urls.py' is used by convention
+-./pyshop/urls.py is the parent or root urls module in a django project
+-any time you wanna define a view function, go to views module n create new function, then we go to urls module n define a new url pattern
+
+MODEL (youtu.be/_uQrJ0TkZlc?t=19341) - representation of a real world concept (e.g. order, customer, product, review, etc)
+-see ./models.py
+
+MIGRATIONS (youtu.be/_uQrJ0TkZlc?t=19565) - use a model to create a database table [here, for storing products]
+-db.sqlite3 file is a database file to store data automatically generated by Django (sqlite is good for small applications but for enterprise applications use: sqlserver, mysql, etc WHICH ARE SUPPORTED BY DJANGO)
+-sqlitebrowser.org - simple / free application for using sqlite databases
+-$python3.8 manage.py makemigrations - this automatically migrates model into database file.. BUT FIRST (for this example) we must add 'products.apps.ProductsConfig' to INSTALLED_APPS list in ./pyshop/settings.py ...DON'T FKN UNDERSTAND THIS :(.. but it automatically creates a file in ./products/migrations/  ...OK WTFEVER..
+-$python3.8 manage.py migrate - runs pending migrations for our app against database - this automatically creates tables in db file ...STILL DONT KNOW WTF IS GOING ON REALLY :(
+-SUMMARY: when we create a new model or modify an existing one, we come back into terminal: create a new migration, then run pending migrations w two commands above
+
+ADMIN - every Django application by default comes w administrative panel (PART OF THE BEAUTY OF DJANGO - WE DON'T HAVE TO CODE ANY OF THIS SHIT)
+-$python3.8 manage.py createsuperuser - self explanatory.. after this, w server running, go to /admin and you can login
+-at first, we can only manage users and groups, but w one line of code we can manage other things ('products' here): go to ./products/admin.py and add "from .models import Product" and "admin.site.register(Product)"
+-then simply refresh browser for admin panel n BOOM!! products is there! and we can add/manage products from browser
+
+CUSTOMIZE admin (youtu.be/_uQrJ0TkZlc?t=20556)
+-in admin.py, we add a new class w list_display variable - see file; then the product will display w useful info on admin page AND when we add new products, they'll automatically be displayed the same way!!
+
+TEMPLATES (put the list of products on the /products webpage)
+-in views.py under the index class, we use the Product.objects module for various things (e.g. Product.objects.all() to show all; .filter() for filtering out certain products w certain criteria; .get() for single product; .save() for creating new product or updating existing one)
+-create a new directory in ./products folder called 'templates' (it's where Django will look so name is important); in this folder create index.html file w what you want to display (see this file for how it works.. even tho you don't understand ANY of this SHIT)
+TWO SPECIAL SYNTAXES in templates (see index.html):
+-{% %} - "template tag" - between %'s we can write dynamic code like loops or if statements
+-{{some code}} in Django template, Django will evaluate expresssion inside and dyanmically render it in html markup
+-see views.py for how to use render function in index class ...I'M FKN LOST :/
+-base.html is a base template for all pages in our application
+
+ADDING BOOTSTRAPS - to make product display nicer, we'll use Bootstrap framework for building responsive applications (getbootstrap.com)
+-added 'card component' from getbootstrap n put it in index.html then changed some shit w the {{}} var's n it makes the pics pop up.. AGAIN - LOST :(
+
+FINAL TOUCHES youtu.be/_uQrJ0TkZlc?t=22000
+-used getbootstrap to add nav bar
+-in ./products/templates folder we have base.html (base template for our app) and index.html (template for product page)
+-the problem w this structure is that base.html is NOT REUSABLE because we've added inside the templates of the products app; if we wanna add another app to this project in the future, we don't wanna recreate base.html file
+-to do this move base.html to a NEW FOLDER called templates in project home dir; this will cause an error cuz Django doesn't look here; so we go to ./pyshop/settings.py and find 'TEMPLATES' n 'DIRS' n add: os.path.join(BASE_DIR, 'templates')
+-now our base template is somewhere central n we can reuse it across multiple apps! ...AGAIN I'M FKN LOST / DONT UNDERSTAND SHIT!! :'(
+-then we added   <div class ="container"> to base.html to add 'padding' around products but it didn't work ..DON'T FKN CARE - I'M LOST N STUPID N USELESS - I'LL NEVER LEARN FUCK ALL
+
+
+
+
+
+
+
+
+
+
