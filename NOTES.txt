@@ -30,9 +30,10 @@
 
 -www.geeksforgeeks.org/matplotlib-practice-exercise-and-solutions, www.geeksforgeeks.org/pyplot-in-matplotlib/	***KINDA STARTED - matplotlib_begin.py - use iPython for now cuz IDLE SUCKS FUCKING DICK!
 
+-DJANGO TUTORIALS: /home/chavo/pYthOn/Django-4.1/docs/intro/
+
 NOT READY YET
 -github.com/firstcontributions/first-contributions
--django documentation - overview, examples... (locally stored files - came w software download)
 -math stuff projecteuler.net
 -docs.fetch.ai/CosmPy
 

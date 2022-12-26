@@ -13,9 +13,10 @@ print(''.join([a,a,a]))
 ..cont w #12
 
 
-______________________
-GIT / GITHUB (product.hubspot.com/blog/git-and-github-tutorial-for-beginners):
 
+
+GIT / GITHUB (product.hubspot.com/blog/git-and-github-tutorial-for-beginners):
+______________________
 -Git is an open-source, version control tool created in 2005 by developers working on the Linux operating system
 -GitHub is a company founded in 2008 that makes tools which integrate with git
 -if you only want to keep track of your code locally, you DON'T NEED GITHUB; but if you wanna work w a team, Github is for collaboration
@@ -43,12 +44,32 @@ PULL REQUEST: alerts repo's owner that you want to make some changes; allows the
 NEIL'S SYNOPSIS OF ALL THIS SHIT ^^^:
 1. Make changes
 2. $git status to see that git recognizes there are changes
-3. $git add <filename> (can do $git status again to see that it's added)
-4. $git commit -m "Message"
+3. $git add <filename> (can do $git status again to see that it's added) - this selects changes
+4. $git commit -m "Message" - records changes locally
 5. $git checkout -b branch_name (can do $git branch to see the new branch)
-6. $git push -u origin branch_name
+6. $git push -u origin branch_name - shares changes on github
 7. on github: click "compare & pull request" then "merge pull request" then "delete branch"
-..o mas bien: $git add selects changes, $git commit records changes LOCALLY, $git push shares changes ON GITHUB
+
+-if changes are made on Github, you can update your local repo
+1. $git pull origin main - this will show any changes git notices
+2. $git log - shows ALL NEW COMMITS
+
+
+FIRST CONTRIBUTIONS:
+	WORKFLOW: fork -> clone -> edit -> pull
+1. fork repo - creates a copy in your account
+2. clone repo - $git clone "http..." - copies it locally
+3. create branch - $cd first-cont.. $git branch -c branch_name
+4. make changes (add my name to Contributors.md), $git status to see that git sees change
+5. $git add Contributors.md
+6. $git commit -m "Add Neil Copas to contributor list"
+7: $git push -u origin branch_name (REMOVED THE "-u" TO GET IT TO WORK! - WHY??)
+
+
+** firstcontributions.github.io/#project-list - what can I contribute to???
+
+
+
 
 
 
