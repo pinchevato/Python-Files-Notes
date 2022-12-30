@@ -22,3 +22,9 @@ print("Tuples: ", tuple(listt))
 
 # Print the documentation of py built-in functions
 print(print.__doc__)
+
+# Print calendar (INSANE how easy this is)
+import calendar
+y = int(input("Input the year : "))
+m = int(input("Input the month : "))
+print(calendar.month(y, m))
