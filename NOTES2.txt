@@ -67,6 +67,7 @@ FIRST CONTRIBUTIONS:
 
 
 ** firstcontributions.github.io/#project-list - what can I contribute to???
+** check advanced git tutorials at end of link at top of this section
 
 
 
