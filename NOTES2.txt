@@ -5,12 +5,12 @@ STRING CONCATENATION:
 EXAMPLE:
 a = "words "
 print ("%s%s%s" % (a,a,a))
-These all do the same thing n I have no fkn idea why one is better:
+These all do the same thing n I have NO FKN IDEA why one is better:
 print (a + a + a)
 print("{}{}{}".format(a,a,a))
 print(''.join([a,a,a]))
 
-..cont w #12
+..cont w #19
 
 
 
@@ -69,6 +69,11 @@ FIRST CONTRIBUTIONS:
 ** firstcontributions.github.io/#project-list - what can I contribute to???
 ** check advanced git tutorials at end of link at top of this section
 
+
+
+DJANGO BUILT-IN TUTORIAL:
+_________________________________________
+-followed thru tutorial04.txt, the next one is on testing and I'M 100% FUCKING LOST :'( ..so resume later? FUCK I'M A FUCKING IDIOT :'(
 
 
 

@@ -316,7 +316,7 @@ need to install dot extension - I THINK THIS ONLY WORKS FOR VSCODE - can't even 
 -s'ok tho, this last little bit ISN'T THAT IMPORTANT
 
 
-1st DJANGO PROJECT
+1st DJANGO PROJECT (also includes notes form Django's own tutorials)
 __________________
 -install django thru pip
 -python3.8 -m django --version
@@ -379,7 +379,7 @@ FINAL TOUCHES youtu.be/_uQrJ0TkZlc?t=22000
 -now our base template is somewhere central n we can reuse it across multiple apps! ...AGAIN I'M FKN LOST / DONT UNDERSTAND SHIT!! :'(
 -then we added   <div class ="container"> to base.html to add 'padding' around products but it didn't work ..DON'T FKN CARE - I'M LOST N STUPID N USELESS - I'LL NEVER LEARN FUCK ALL
 
-
+-$python3.8 manage.py shell - Django API shell!
 
 
 
